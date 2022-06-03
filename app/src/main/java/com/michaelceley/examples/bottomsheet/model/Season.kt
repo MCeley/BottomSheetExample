@@ -16,4 +16,7 @@ data class Season(val year: Int, val wins: Int, val losses: Int) {
             return seasons
         }
     }
+
+    val winRate: Float
+        get() = wins.toFloat() / (wins+losses)
 }

@@ -1,6 +1,7 @@
 package com.michaelceley.examples.bottomsheet
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.*
@@ -65,7 +66,7 @@ class MainActivity : AppCompatActivity(), SortBottomSheetDialogFragment.SortMode
     }
 
     fun showTeamStats() {
-
+        startActivity(Intent(this, StatsActivity::class.java))
     }
 
     override fun onSortModeSelected(sortMode: SortMode) {

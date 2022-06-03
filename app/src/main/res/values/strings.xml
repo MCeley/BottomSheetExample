@@ -10,4 +10,11 @@
 
     <string name="sort">Sort</string>
     <string name="stats">Stats</string>
+
+    <string name="year_range">Years: %d - %d</string>
+    <string name="average_games_played">Avg Games Played: %.1f</string>
+    <string name="average_games_won">Avg Games Won: %.1f</string>
+    <string name="average_games_lost">Avg Games Lost: %.1f</string>
+    <string name="best_year">Best Year: %d (%dW-%dL)</string>
+    <string name="worst_year">Worst Year: %d (%dW-%dL)</string>
 </resources>
