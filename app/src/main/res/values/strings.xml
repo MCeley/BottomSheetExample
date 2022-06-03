@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Bottom Sheet Example</string>
+    <string name="item_year">Year:\n%d</string>
+    <string name="item_wins">Wins:\n%d</string>
+    <string name="item_losses">Losses:\n%d</string>
+
+    <string name="year">Year:%d</string>
+    <string name="record">Record:%s</string>
+    <string name="win_rate">Win Rate:%s</string>
 </resources>
