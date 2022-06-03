@@ -5,15 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.michaelceley.examples.bottomsheet.databinding.FragmentStatsDialogBinding
 import com.michaelceley.examples.bottomsheet.viewmodel.StatsViewModel
 
-class StatsBottomSheetDialogFragment : BottomSheetDialogFragment() {
+class StatsDialogFragment : DialogFragment() {
 
     companion object {
-        const val TAG = "StatsBottomSheetDialogFragment"
+        const val TAG = "StatsDialogFragment"
     }
 
     override fun onDismiss(dialog: DialogInterface) {

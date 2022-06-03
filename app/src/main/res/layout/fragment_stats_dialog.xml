@@ -1,57 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:padding="16dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView android:id="@+id/text_year_range"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        tools:text="Years: 1980 - 2010" />
+    <data>
+        <import type="android.view.View" />
+        <import type="com.michaelceley.examples.bottomsheet.model.Season" />
+        <variable
+            name="viewModel"
+            type="com.michaelceley.examples.bottomsheet.viewmodel.StatsViewModel" />
+    </data>
 
-    <TextView android:id="@+id/text_average_games"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        tools:text="Avg Games Played: 120.1" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:padding="16dp">
 
-    <TextView android:id="@+id/text_average_wins"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        tools:text="Avg Games Won: 100.7" />
+        <TextView android:id="@+id/text_year_range"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:text="@{@string/year_range(viewModel.firstYear, viewModel.lastYear)}" />
 
-    <TextView android:id="@+id/text_average_losses"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        tools:text="Avg Games Lost: 62.8" />
+        <TextView android:id="@+id/text_average_games"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:text="@{@string/average_games_played(viewModel.averageGamesPlayed)}" />
 
-    <TextView android:id="@+id/text_best_year"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        tools:text="Best Year: 1987 (130W-32L)" />
+        <TextView android:id="@+id/text_average_wins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:text="@{@string/average_games_won(viewModel.averageGamesWon)}" />
 
-    <TextView android:id="@+id/text_worst_year"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        tools:text="Worst Year: 2005 (52W-70L)" />
+        <TextView android:id="@+id/text_average_losses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:text="@{@string/average_games_lost(viewModel.averageGamesLost)}" />
 
-</LinearLayout>
+        <TextView android:id="@+id/text_best_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:text="@{@string/best_year(viewModel.bestSeason.year, viewModel.bestSeason.wins, viewModel.bestSeason.losses)}" />
+
+        <TextView android:id="@+id/text_worst_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:text="@{@string/worst_year(viewModel.worstSeason.year, viewModel.worstSeason.wins, viewModel.worstSeason.losses)}" />
+
+    </LinearLayout>
+</layout>
