@@ -1,7 +1,5 @@
-package com.michaelceley.examples.bottomsheet
+package com.michaelceley.examples.bottomsheet.fragment
 
-import android.app.Dialog
-import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.michaelceley.examples.bottomsheet.R
 import com.michaelceley.examples.bottomsheet.model.Season
 
 class StatsBottomSheetDialogFragment : BottomSheetDialogFragment() {

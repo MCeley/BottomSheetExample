@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.michaelceley.examples.bottomsheet.fragment.SortBottomSheetDialogFragment
 import com.michaelceley.examples.bottomsheet.model.Season
 import com.michaelceley.examples.bottomsheet.model.SortMode
 

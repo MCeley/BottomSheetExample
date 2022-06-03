@@ -1,4 +1,4 @@
-package com.michaelceley.examples.bottomsheet
+package com.michaelceley.examples.bottomsheet.fragment
 
 import android.content.Context
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.michaelceley.examples.bottomsheet.R
 import com.michaelceley.examples.bottomsheet.model.SortMode
 
 class SortBottomSheetDialogFragment() : BottomSheetDialogFragment(), AdapterView.OnItemClickListener {
