@@ -2,13 +2,17 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_seasons"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
 
     <LinearLayout
         android:id="@+id/ll_bottom_sheet"
@@ -16,24 +20,28 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior" >
+        android:background="@android:color/darker_gray"
+        android:clipToPadding="true"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        app:behavior_peekHeight="0dp">
 
-        <TextView android:id="@+id/text_year"
+        <TextView android:id="@+id/text_season"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            tools:text="Year: 1980" />
+            android:textSize="20sp"
+            tools:text="Season Year: 1980" />
 
         <TextView android:id="@+id/text_record"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:layout_marginVertical="8dp"
+            android:textSize="20sp"
             tools:text="Record: 100 wins - 62 losses" />
 
         <TextView android:id="@+id/text_win_rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="20sp"
             tools:text="Win Rate: 0.617" />
 
     </LinearLayout>
