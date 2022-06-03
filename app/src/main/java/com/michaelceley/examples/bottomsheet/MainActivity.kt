@@ -3,9 +3,7 @@ package com.michaelceley.examples.bottomsheet
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -13,8 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.michaelceley.examples.bottomsheet.model.Season
+import com.michaelceley.examples.bottomsheet.model.SortMode
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), SortBottomSheetDialogFragment.SortModeSelectedListener {
 
     var bottomSheetBehavior: BottomSheetBehavior<LinearLayout>? = null
 
@@ -44,6 +43,33 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         recyclerView.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
         recyclerView.adapter = SeasonAdapter(this)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.action_sort -> showSortDialog()
+            R.id.action_stats -> showTeamStats()
+            else -> return false
+        }
+        return true
+    }
+
+    private fun showSortDialog() {
+        val fragment = SortBottomSheetDialogFragment()
+        fragment.show(supportFragmentManager, SortBottomSheetDialogFragment.TAG)
+    }
+
+    fun showTeamStats() {
+
+    }
+
+    override fun onSortModeSelected(sortMode: SortMode) {
+        (findViewById<RecyclerView>(R.id.rv_seasons).adapter as? SeasonAdapter)?.applySort(sortMode)
     }
 
     fun showDrawerWithSeasonData(season: Season?) {
@@ -83,7 +109,19 @@ class MainActivity : AppCompatActivity() {
     inner class SeasonAdapter(context: Context) : RecyclerView.Adapter<SeasonViewHolder>() {
 
         private val inflater = LayoutInflater.from(context)
-        private val seasons = Season.generateSeasons()
+        private val seasons = Season.seasons
+
+        fun applySort(sortMode: SortMode) {
+            when(sortMode) {
+                SortMode.SORT_YEAR_ASC -> seasons.sortBy { it.year }
+                SortMode.SORT_YEAR_DSC -> seasons.sortByDescending { it.year }
+                SortMode.SORT_WINS_ASC -> seasons.sortBy { it.wins }
+                SortMode.SORT_WINS_DSC -> seasons.sortByDescending { it.wins }
+                SortMode.SORT_LOSSES_ASC -> seasons.sortBy { it.losses }
+                SortMode.SORT_LOSSES_DSC -> seasons.sortByDescending { it.losses }
+            }
+            notifyDataSetChanged()
+        }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SeasonViewHolder {
             return SeasonViewHolder(
