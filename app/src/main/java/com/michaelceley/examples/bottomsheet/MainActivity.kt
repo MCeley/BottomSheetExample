@@ -1,5 +1,6 @@
 package com.michaelceley.examples.bottomsheet
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -113,6 +114,7 @@ class MainActivity : AppCompatActivity(), SortBottomSheetDialogFragment.SortMode
         private val inflater = LayoutInflater.from(context)
         private val seasons = Season.seasons
 
+        @SuppressLint("NotifyDataSetChanged")
         fun applySort(sortMode: SortMode) {
             when(sortMode) {
                 SortMode.SORT_YEAR_ASC -> seasons.sortBy { it.year }

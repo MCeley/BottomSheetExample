@@ -13,14 +13,14 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"
+        android:background="@drawable/background_stats_dialog"
         android:padding="16dp">
 
         <TextView android:id="@+id/text_year_range"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textColor="@android:color/black"
             android:text="@{@string/year_range(viewModel.firstYear, viewModel.lastYear)}" />
 
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textColor="@android:color/black"
             android:text="@{@string/average_games_played(viewModel.averageGamesPlayed)}" />
 
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textColor="@android:color/black"
             android:text="@{@string/average_games_won(viewModel.averageGamesWon)}" />
 
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textColor="@android:color/black"
             android:text="@{@string/average_games_lost(viewModel.averageGamesLost)}" />
 
@@ -52,14 +52,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textColor="@android:color/black"
             android:text="@{@string/best_year(viewModel.bestSeason.year, viewModel.bestSeason.wins, viewModel.bestSeason.losses)}" />
 
         <TextView android:id="@+id/text_worst_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textColor="@android:color/black"
             android:text="@{@string/worst_year(viewModel.worstSeason.year, viewModel.worstSeason.wins, viewModel.worstSeason.losses)}" />
 
